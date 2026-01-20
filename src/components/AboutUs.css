@@ -1,0 +1,58 @@
+.about-us {
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-container h1 {
+  color: #2d5016;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+.about-content section {
+  margin-bottom: 30px;
+}
+
+.about-content h2 {
+  color: #4a7c2a;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.about-content p {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.about-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.about-content li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #333;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.about-content li:before {
+  content: "🌿";
+  position: absolute;
+  left: 0;
+}
