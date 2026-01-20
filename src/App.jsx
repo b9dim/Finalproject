@@ -9,14 +9,17 @@ import AboutUs from './components/AboutUs';
 import './App.css';
 
 function LandingPage() {
+  const [showProductList, setShowProductList] = React.useState(false);
+
   const handleGetStarted = () => {
+    setShowProductList(true);
     window.location.href = '/plants';
   };
 
   return (
     <div className="landing-page">
       <div className="landing-content">
-        <h1 className="company-name">Paradise Nursery</h1>
+        <h1 className="company-name">Welcome to Paradise Nursery</h1>
         <p className="tagline">Bring Nature Home - Your Indoor Garden Awaits</p>
         <button className="get-started-btn" onClick={handleGetStarted}>
           Get Started

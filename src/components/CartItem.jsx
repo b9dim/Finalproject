@@ -1,24 +1,35 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCart, increaseQuantity, decreaseQuantity } from '../store/CartSlice';
+import { removeItem, updateQuantity } from '../store/CartSlice';
 import './CartItem.css';
 
 const CartItem = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.items);
-  const totalAmount = useSelector(state => state.cart.totalAmount);
+  
+  const calculateTotalAmount = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+  
+  const totalAmount = calculateTotalAmount();
 
   const handleIncrease = (id) => {
-    dispatch(increaseQuantity(id));
+    const item = cartItems.find(item => item.id === id);
+    if (item) {
+      dispatch(updateQuantity({ id, quantity: item.quantity + 1 }));
+    }
   };
 
   const handleDecrease = (id) => {
-    dispatch(decreaseQuantity(id));
+    const item = cartItems.find(item => item.id === id);
+    if (item && item.quantity > 1) {
+      dispatch(updateQuantity({ id, quantity: item.quantity - 1 }));
+    }
   };
 
   const handleRemove = (id) => {
-    dispatch(removeFromCart(id));
+    dispatch(removeItem(id));
   };
 
   const handleCheckout = () => {

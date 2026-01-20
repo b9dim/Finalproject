@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../store/CartSlice';
+import { addItem } from '../store/CartSlice';
 import './ProductList.css';
 
 const ProductList = () => {
@@ -168,7 +168,7 @@ const ProductList = () => {
     : allPlants.filter(plant => plant.category === selectedCategory);
 
   const handleAddToCart = (plant) => {
-    dispatch(addToCart(plant));
+    dispatch(addItem(plant));
   };
 
   const isInCart = (plantId) => {
